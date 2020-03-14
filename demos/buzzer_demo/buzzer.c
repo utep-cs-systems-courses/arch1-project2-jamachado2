@@ -1,6 +1,7 @@
 #include <msp430.h>
 #include "libTimer.h"
 #include "buzzer.h"
+#include "switches.h"
 
 void buzzer_init()
 {
@@ -16,12 +17,26 @@ void buzzer_init()
     P2SEL &= ~BIT7; 
     P2SEL |= BIT6;
     P2DIR = BIT6;		/* enable output to speaker (P2.6) */
+    
+    
+    
 }
 
 void buzzer_set_period(short cycles) /* buzzer clock = 2MHz.  (period of 1k results in 2kHz tone) */
 {
-  CCR0 = cycles; 
+  
+  CCR0 = cycles;
   CCR1 = cycles >> 1;		/* one half cycle */
+  
+                                /* apply a fucking formula here to change the tone  1Mz/2khz */
+                                /* use one button to shut the fucking noise */
+  /*if(switch_state_change == 1){
+    char buzzerFlags = 0; /* by default, buzzer off */
+  /*
+    CCR0 = cycles;
+    CCR1 = cycles >> 1;
+    }
+    switch_state_change = 0;*/
 }
 
 
