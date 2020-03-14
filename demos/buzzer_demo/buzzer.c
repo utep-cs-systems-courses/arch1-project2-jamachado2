@@ -28,15 +28,7 @@ void buzzer_set_period(short cycles) /* buzzer clock = 2MHz.  (period of 1k resu
   CCR0 = cycles;
   CCR1 = cycles >> 1;		/* one half cycle */
   
-                                /* apply a fucking formula here to change the tone  1Mz/2khz */
-                                /* use one button to shut the fucking noise */
-  /*if(switch_state_change == 1){
-    char buzzerFlags = 0; /* by default, buzzer off */
-  /*
-    CCR0 = cycles;
-    CCR1 = cycles >> 1;
-    }
-    switch_state_change = 0;*/
+                              
 }
 
 
