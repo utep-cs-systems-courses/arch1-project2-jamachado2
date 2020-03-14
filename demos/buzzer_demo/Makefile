@@ -10,16 +10,14 @@ AS              = msp430-elf-as
 all: buzzer.elf 
 
 #additional rules for files
-buzzer.elf: ${COMMON_OBJECTS} buzzer.o buzzerMain.o ../lib/libTimer.a
+buzzer.elf: ${COMMON_OBJECTS} p2_interrupt_handler.o switches.o buzzer.o buzzerMain.o ../lib/libTimer.a
 	${CC} ${CFLAGS} -o $@ $^
 
 load: buzzer.elf
-	msp430loader.sh blink.elf
+	msp430loader.sh buzzer.elf
 
 clean:
 	rm -f *.o *.elf
 
-buzzer.c: buzzer.h
+buzzer.c: buzzer.h switches.h
 buzzerMain.c: buzzer.h
-
-
