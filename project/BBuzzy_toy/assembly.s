@@ -11,7 +11,6 @@ state:	        .byte 0
 	jmp     buzzer_set_period(2000, 1)
 	
 	add     CASE1
-	btfsc   STATUS, Z	; IF SWITCH = CASE2, jump to buzzer
 	mov     &0, &red_on	; red_on = 0
 	mov     &0, &state	; state = 0
 	jmp     buzzer_set_period(2000, 3)
