@@ -32,7 +32,7 @@ __interrupt_vec(WDT_VECTOR) WDT(){/* 250 interrupts/sec */
    }
    if(switch_state_down4){
      if(++blink_count == 125){
-
+       test_sw4();
        blink_count = 0;
      }
    }

@@ -72,7 +72,7 @@ void alternate()/* alternate between red & green */
 
 
 /* test sw4 */
-void sw4_button(){
+char sw4_button(){
   static char state = 0;
 
   switch(state){
