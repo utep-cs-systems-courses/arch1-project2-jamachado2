@@ -8,17 +8,10 @@
 char switch_func = 1;
 
 void blink_interrupt_handler(){
-  //static char blink_count = 0;
-  //switch_interrupt_handler();
-
   /* blink with sound */
   if(switch_state_down2){
     switch_func = 2;
-  }/*if (++blink_count == 125) {
-    state_advance();
-    blink_count = 0;
-    }*/
-
+  }
 }
 
 void song_interrupt_handler(){
@@ -30,5 +23,11 @@ void song_interrupt_handler(){
 void alternate_interrupt_handler(){
   if(switch_state_down3){
     switch_func = 3;
+  }
+}
+
+void test_SW4_handler(){
+  if(switch_state_down4){
+    switch_func = 4;
   }
 }

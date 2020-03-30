@@ -10,10 +10,7 @@ __interrupt_vec(PORT2_VECTOR) Port_2(){
   if (P2IFG & SWITCHES) {      /* did a button cause this interrupt? */
     P2IFG &= ~SWITCHES;      /* clear pending sw interrupts */
     switch_interrupt_handler();/* single handler for all switches */
-    /* maybe add my songs here ? */
-    //state_advance();
-    //if(switch_state_down2){
-
+    
     if(switch_func == 1){
       song_interrupt_handler();
     }
@@ -24,5 +21,8 @@ __interrupt_vec(PORT2_VECTOR) Port_2(){
     if(switch_func == 3){
       alternate_interrupt_handler();
     }
+    if(switch_func == 4){
+    test_SW4_handler();
    }
+  }
 }

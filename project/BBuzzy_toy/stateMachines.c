@@ -5,8 +5,8 @@
 #include "switches.h"
 #include <time.h>
 
-/* alternate state of led by pressing SW3 and SW4 */
-char switch_leds()/* change fast */ 
+/* alternate state of led by pressing SW3*/
+char switch_leds() 
 {  
   static char state = 0;
 
@@ -64,9 +64,26 @@ void delay2(int sec){
   for(i = 0; i<sec; i++)
     for(j = 0; j<count; j++);
 }
-void alternate()/* alternate between toggling red & green */
+void alternate()/* alternate between red & green */
 {
     led_changed = switch_leds();
     led_update();
 }
 
+
+/* test sw4 */
+void sw4_button(){
+  static char state = 0;
+
+  switch(state){
+  case 0:
+    red_on = 0;
+    green_on =1;
+    state = 1;
+  }
+}
+
+void test_sw4(){
+  led_changed = sw4_button();
+  led_update();
+}

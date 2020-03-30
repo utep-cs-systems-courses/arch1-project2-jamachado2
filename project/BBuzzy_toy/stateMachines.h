@@ -3,6 +3,7 @@
 
 void delay2(int sec);
 void alternate();
+void test_sw4();
 
 //void switch_handler();
 

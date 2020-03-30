@@ -13,14 +13,11 @@ __interrupt_vec(WDT_VECTOR) WDT(){/* 250 interrupts/sec */
 
    if(switch_state_down){
      if(++blink_count == 125){
-       /* call method here */
        sound_state();
        delay(4);
        blink_count = 0;       
      }
    }
-   //if(switch_func == 2){
-   //state_advance();
    if(switch_state_down2){
      if (++blink_count == 125) {
     state_advance();
@@ -30,6 +27,12 @@ __interrupt_vec(WDT_VECTOR) WDT(){/* 250 interrupts/sec */
    if(switch_state_down3){
      if(++blink_count == 125){
        alternate();
+       blink_count = 0;
+     }
+   }
+   if(switch_state_down4){
+     if(++blink_count == 125){
+
        blink_count = 0;
      }
    }
