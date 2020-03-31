@@ -1,7 +1,19 @@
 		.arch msp430g2553
-		.text
 
-		.global state
+		.data
+state:		.word 0
+
+		.text
+switch:		.word default
+		.word case0
+		.word case1
+
+		.global
+toggle_red:
+		/* I should change first the blink.c into goto */
+
+	
+/*		.global state
 toggle_red:	nop
 state:	        .byte 0
 	mov     SWITCH, state	; switch(state)
@@ -31,7 +43,7 @@ end:
 state_advance:	nop
 changed:	.byte 0
 /* static enum ?*/
-	mov     &0, &R
+/*	mov     &0, &R
 	mov     &1, &G
 	mov     &G, &color
 
@@ -48,3 +60,4 @@ changed:	.byte 0
 lst:
 	mov     &changed, &led_changed
 		led_update
+*/
