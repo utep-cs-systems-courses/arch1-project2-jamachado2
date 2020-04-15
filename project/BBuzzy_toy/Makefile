@@ -12,7 +12,7 @@ AR              = msp430-elf-ar
 all: blink.elf
 #additional rules for files
 
-blink.elf: ${COMMON_OBJECTS} p1_interrupt_handler.o switches.o buzzer.o buzzyMain.o blink.o song.o    stateMachines.o switch_machine.o led.o wdInterruptHandler.o ../lib/libTimer.a
+blink.elf: ${COMMON_OBJECTS} p1_interrupt_handler.o switches.o buzzer.o buzzyMain.o blink.o song.o    switch_leds_assembly.o toggle_red.o stateMachines.o switch_machine.o led.o wdInterruptHandler.o ../lib/libTimer.a
 	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^
 
 load: blink.elf
